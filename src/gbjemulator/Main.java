@@ -11,14 +11,14 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		float[][] gridspace = new float[3][3];
 		outputGridspace(gridspace);
-		System.out.println("x: ");
-		int xin = Integer.parseInt(scanner.next());
-		System.out.println("y: ");
-		int yin = Integer.parseInt(scanner.next());
-		System.out.println("value: ");
-		float vin = Float.parseFloat(scanner.next());
-		gridspace = setPos(gridspace, xin, yin, vin);
-		outputGridspace(gridspace);
+		//System.out.println("x: ");
+		//int xin = Integer.parseInt(scanner.next());
+		//System.out.println("y: ");
+		//int yin = Integer.parseInt(scanner.next());
+		//System.out.println("value: ");
+		//float vin = Float.parseFloat(scanner.next());
+		//gridspace = setPos(gridspace, xin, yin, vin);
+		//outputGridspace(gridspace);
 		//System.out.println(getDimensions(gridspace)[0]); // testing getdimensions and setrow/column
 		gridspace = setRow(gridspace, 0, 3);
 		outputGridspace(gridspace);
@@ -86,10 +86,11 @@ public class Main {
 				for(int i = 0; i < w; i++) { // searching width, i = current x
 					
 					int[][] srnd = findSurround(i, j);
+					System.out.println(srnd[1][0]);
 					for(int a = 0; a < srnd.length; a++) {
 						
 						if(srnd[a][2] > 0) {
-							igsp[srnd[a][0]][srnd[a][1]] = propValue(srnd[a][2], igsp[i][j]);
+							igsp[(srnd[a][0])][(srnd[a][1])] = propValue(srnd[a][2], igsp[i][j]);
 						}
 					}
 					
