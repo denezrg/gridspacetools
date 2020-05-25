@@ -20,8 +20,9 @@ public class Main {
 		//gridspace = setPos(gridspace, xin, yin, vin);
 		//outputGridspace(gridspace);
 		//System.out.println(getDimensions(gridspace)[0]); // testing getdimensions and setrow/column
-		gridspace = setRow(gridspace, 0, 3);
-		outputGridspace(gridspace);
+		//gridspace = setRow(gridspace, 0, 3);
+		//outputGridspace(gridspace);
+		gridspace = setPos(gridspace, 1, 1, 4);
 		gridspace = propagateField(gridspace, 3);
 		outputGridspace(gridspace);
 	}
@@ -86,7 +87,7 @@ public class Main {
 				for(int i = 0; i < w; i++) { // searching width, i = current x
 					
 					int[][] srnd = findSurround(i, j);
-					System.out.println(srnd[1][0]);
+					//System.out.println(srnd[1][0]);
 					for(int a = 0; a < srnd.length; a++) {
 						
 						if(srnd[a][2] > 0) {
