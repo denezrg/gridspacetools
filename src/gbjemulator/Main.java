@@ -1,4 +1,7 @@
-package gbjemulator;
+/*
+TODO:
+Add value already in cell to value being propagated into it
+*/
 
 import java.util.Scanner;
 
@@ -91,7 +94,7 @@ public class Main {
                     for(int a = 0; a < srnd.length; a++) {
 
                         if(srnd[a][2] > 0) {
-                            igsp[(srnd[a][0])][(srnd[a][1])] = propValue(srnd[a][2], igsp[i][j]);
+                            igsp[(srnd[a][0])][(srnd[a][1])] = propValue(srnd[a][2], igsp[i][j]/*, srnd[a][2]*/);
                         }
                     }
 
@@ -104,14 +107,14 @@ public class Main {
         return igsp;
     }
 
-    static float propValue(int td, float ivalue) { //value from propagation, td: total distance (x+y) ivalue = initial value
+    static float propValue(int td, float ivalue, float invalue) { //value from propagation, td: total distance (x+y) ivalue = initial value
         float propd = 0.8f; //propagation constant for direct cell contact
         float propi = 0.6f; //propagation constant for indirect cell contact
         float tmp = 0;
         if(td == 1) {
-            tmp = (ivalue*propd);
+            tmp = (ivalue*propd)/*+invalue*/;
         } else if(td == 2) {
-            tmp = (ivalue*propi);
+            tmp = (ivalue*propi)/*+invalue*/;
         } else if(td == -1) {
             tmp = -1;
         } else {
